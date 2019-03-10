@@ -21,4 +21,12 @@ class Company extends Model implements EntityContract
         $this->ini('amethyst.company.data.company');
         parent::__construct($attributes);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function legal_entity()
+    {
+        return $this->belongsTo(LegalEntity::class);
+    }
 }

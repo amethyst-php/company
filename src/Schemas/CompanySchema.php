@@ -2,6 +2,7 @@
 
 namespace Railken\Amethyst\Schemas;
 
+use Railken\Amethyst\Managers\LegalEntityManager;
 use Railken\Lem\Attributes;
 use Railken\Lem\Schema;
 
@@ -20,6 +21,9 @@ class CompanySchema extends Schema
                 ->setRequired(true)
                 ->setUnique(true),
             Attributes\LongTextAttribute::make('description'),
+            Attributes\BelongsToAttribute::make('legal_entity_id')
+                ->setRelationName('legal_entity')
+                ->setRelationManager(LegalEntityManager::class),
             Attributes\CreatedAtAttribute::make(),
             Attributes\UpdatedAtAttribute::make(),
             Attributes\DeletedAtAttribute::make(),

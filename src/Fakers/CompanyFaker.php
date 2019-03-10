@@ -18,6 +18,7 @@ class CompanyFaker extends Faker
         $bag = new Bag();
         $bag->set('name', $faker->name);
         $bag->set('description', $faker->text);
+        $bag->set('legal_entity', LegalEntityFaker::make()->parameters()->toArray());
 
         return $bag;
     }

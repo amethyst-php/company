@@ -16,6 +16,8 @@ class CreateCompaniesTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->text('description')->nullable();
+            $table->integer('legal_entity_id')->unsigned()->nullable();
+            $table->foreign('legal_entity_id')->references('id')->on(Config::get('amethyst.legal-entity.data.legal-entity.table'));
             $table->timestamps();
             $table->softDeletes();
         });
