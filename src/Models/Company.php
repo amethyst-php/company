@@ -28,6 +28,6 @@ class Company extends Model implements EntityContract
      */
     public function legal_entity(): BelongsTo
     {
-        return $this->belongsTo(LegalEntity::class);
+        return $this->belongsTo(config('amethyst.legal-entity.data.legal-entity.model')::class);
     }
 }
