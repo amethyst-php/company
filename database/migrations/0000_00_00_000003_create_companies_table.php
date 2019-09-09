@@ -14,7 +14,7 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create(Config::get('amethyst.company.data.company.table'), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('name')->index();
             $table->text('description')->nullable();
             $table->integer('legal_entity_id')->unsigned()->nullable();
             $table->foreign('legal_entity_id')->references('id')->on(Config::get('amethyst.legal-entity.data.legal-entity.table'));
